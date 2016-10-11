@@ -15,6 +15,7 @@ class ViewController: UIViewController  {
     @IBOutlet weak var displayResultLable: UILabel!
     
     @IBAction func createMangeObjectBtn(sender: AnyObject) {
+         self.displayResultLable.text = ""
         
         //The other solution is correct in that it will get you a reference to the application's delegate, but this will not allow you to access any methods or variables added by your subclass of UIApplication, like your managed object context. To resolve this, simply downcast to "AppDelegate" or what ever your UIApplication subclass happens to be called
  
@@ -40,16 +41,18 @@ class ViewController: UIViewController  {
         do{
             //Attempts to commit unsaved changes to registered objects to the receiver’s parent store.
             //true if the save succeeds, otherwise false. 
-            try context.save()
-            print("saved")
+           try context.save()
+
+           self.displayResultLable.text = "crated success"
         }
         catch{
-          print("something happend")
+          self.displayResultLable.text = "something wrong happend"
         }
         
     }
     
     @IBAction func fatchManageObjectBtn(sender: AnyObject) {
+         self.displayResultLable.text = ""
         //The other solution is correct in that it will get you a reference to the application's delegate, but this will not allow you to access any methods or variables added by your subclass of UIApplication, like your managed object context. To resolve this, simply downcast to "AppDelegate" or what ever your UIApplication subclass happens to be called
         
         let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -66,9 +69,9 @@ class ViewController: UIViewController  {
         
             if results.count > 0 {
                 
-                for books in results as! [NSManagedObject] {
+                for book in results as! [NSManagedObject] {
               
-                        if let title = books.valueForKey("title") as? String {
+                        if let title = book.valueForKey("title") as? String {
                             self.displayResultLable.text = self.displayResultLable.text! + "\n" + title
                             self.displayResultLable.numberOfLines = 0
                         }
@@ -82,9 +85,66 @@ class ViewController: UIViewController  {
         
         }
         catch{
-           print("someting wrong happend")
+           self.displayResultLable.text = "someting wrong happend"
         }
     }
+    
+  
+    @IBAction func updateManageObjectBtn(sender: AnyObject) {
+         self.displayResultLable.text = ""
+        
+        //The other solution is correct in that it will get you a reference to the application's delegate, but this will not allow you to access any methods or variables added by your subclass of UIApplication, like your managed object context. To resolve this, simply downcast to "AppDelegate" or what ever your UIApplication subclass happens to be called
+        
+        let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        //The managed object model for the application
+        let context  =  appDelegate.managedObjectContext
+        
+        //nstance of NSFetchRequest describes search criteria used to retrieve data from a persistent store.
+        let fetchRequest = NSFetchRequest(entityName: "Book")
+        fetchRequest.predicate = NSPredicate(format: "title=%@", "Android Programming")
+        
+        do {
+            self.displayResultLable.text = ""
+            //Returns an array of objects that meet the criteria specified by a given fetch request.
+            let results = try context.executeFetchRequest(fetchRequest)
+            
+            if results.count > 0 {
+                
+                for book in results as! [NSManagedObject] {
+                    
+                    if book.valueForKey("title") != nil {
+                       
+                        
+                        book.setValue("Windows Programming", forKey: "title")
+                        
+                        //Attempts to commit unsaved changes to registered objects to the receiver’s parent store.
+                        //true if the save succeeds, otherwise false.
+                        do{
+                        try context.save()
+                           self.displayResultLable.text = "Update success"
+                        }
+                        catch{
+                           self.displayResultLable.text = "something wrong happend"
+                        }
+                    }
+                    
+                }
+            }
+            else{
+                
+            }
+            
+            
+        }
+        catch{
+            print("someting wrong happend")
+        }
+    }
+    
+    @IBAction func deletedManageObjectBtn(sender: AnyObject) {
+             }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
