@@ -11,6 +11,9 @@ import CoreData
 
 class ViewController: UIViewController  {
 
+    
+    @IBOutlet weak var displayResultLable: UILabel!
+    
     @IBAction func createMangeObjectBtn(sender: AnyObject) {
         
         //The other solution is correct in that it will get you a reference to the application's delegate, but this will not allow you to access any methods or variables added by your subclass of UIApplication, like your managed object context. To resolve this, simply downcast to "AppDelegate" or what ever your UIApplication subclass happens to be called
@@ -28,7 +31,7 @@ class ViewController: UIViewController  {
          */
         let entityForName =  NSEntityDescription.insertNewObjectForEntityForName("Book", inManagedObjectContext: context)
         
-        entityForName.setValue("iOS Programming", forKey: "title")
+        entityForName.setValue("Android Programming", forKey: "title")
         entityForName.setValue("12/12/12", forKey: "publishDate")
         entityForName.setValue("NH001", forKey: "code")
         entityForName.setValue("tolight", forKey: "author")
@@ -45,6 +48,44 @@ class ViewController: UIViewController  {
         }
         
     }
+    
+    @IBAction func fatchManageObjectBtn(sender: AnyObject) {
+        //The other solution is correct in that it will get you a reference to the application's delegate, but this will not allow you to access any methods or variables added by your subclass of UIApplication, like your managed object context. To resolve this, simply downcast to "AppDelegate" or what ever your UIApplication subclass happens to be called
+        
+        let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        //The managed object model for the application
+        let context  =  appDelegate.managedObjectContext
+  
+        //nstance of NSFetchRequest describes search criteria used to retrieve data from a persistent store.
+        let fetchRequest = NSFetchRequest(entityName: "Book")
+      
+        do {
+        //Returns an array of objects that meet the criteria specified by a given fetch request.
+        let results = try context.executeFetchRequest(fetchRequest)
+        
+            if results.count > 0 {
+                
+                for books in results as! [NSManagedObject] {
+              
+                        if let title = books.valueForKey("title") as? String {
+                            self.displayResultLable.text = self.displayResultLable.text! + "\n" + title
+                            self.displayResultLable.numberOfLines = 0
+                        }
+                    
+                }
+            }
+            else{
+                
+            }
+      
+        
+        }
+        catch{
+           print("someting wrong happend")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,17 +18,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAS-gi-ovv">
-                                <rect key="frame" x="20" y="184" width="280" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAS-gi-ovv">
+                                <rect key="frame" x="20" y="28" width="280" height="52"/>
+                                <color key="backgroundColor" red="0.83613782049999996" green="0.12703184849999999" blue="0.080122769740000002" alpha="0.37284482759999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="gmV-Zq-HXI"/>
+                                </constraints>
                                 <state key="normal" title="Create Manage Object"/>
                                 <connections>
                                     <action selector="createMangeObjectBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tTY-jX-KXI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goN-ee-eBV">
+                                <rect key="frame" x="20" y="88" width="280" height="52"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.18410560349999999" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="NaW-PD-95p"/>
+                                </constraints>
+                                <state key="normal" title="Fatch Manage Object"/>
+                                <connections>
+                                    <action selector="fatchManageObjectBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="smA-ig-fQs"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Output :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzZ-2v-zmS">
+                                <rect key="frame" x="20" y="301" width="125" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="URu-K0-LtA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ee-Fb-tWd">
+                                <rect key="frame" x="20" y="330" width="280" height="142"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.68025323280000005" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="142" id="Jkt-kO-3a5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BAS-gi-ovv" firstAttribute="trailing" secondItem="goN-ee-eBV" secondAttribute="trailing" id="0h4-EE-VsY"/>
+                            <constraint firstItem="BAS-gi-ovv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Ck-gt-C5S"/>
+                            <constraint firstItem="BAS-gi-ovv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="2dt-R0-mDK"/>
+                            <constraint firstItem="goN-ee-eBV" firstAttribute="top" secondItem="BAS-gi-ovv" secondAttribute="bottom" constant="8" symbolic="YES" id="9sU-bb-WVn"/>
+                            <constraint firstItem="vzZ-2v-zmS" firstAttribute="leading" secondItem="6Ee-Fb-tWd" secondAttribute="leading" id="Uad-RZ-ZWr"/>
+                            <constraint firstItem="goN-ee-eBV" firstAttribute="trailing" secondItem="6Ee-Fb-tWd" secondAttribute="trailing" id="Xaw-l3-GS9"/>
+                            <constraint firstItem="BAS-gi-ovv" firstAttribute="leading" secondItem="goN-ee-eBV" secondAttribute="leading" id="bEw-PG-PEL"/>
+                            <constraint firstItem="goN-ee-eBV" firstAttribute="leading" secondItem="vzZ-2v-zmS" secondAttribute="leading" id="knI-qq-1HE"/>
+                            <constraint firstItem="BAS-gi-ovv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="rCA-vN-hPg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6Ee-Fb-tWd" secondAttribute="bottom" constant="8" symbolic="YES" id="xL2-I1-EIc"/>
+                            <constraint firstItem="6Ee-Fb-tWd" firstAttribute="top" secondItem="vzZ-2v-zmS" secondAttribute="bottom" constant="8" symbolic="YES" id="xnc-Qw-Hec"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="displayResultLable" destination="6Ee-Fb-tWd" id="M54-EG-l65"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
