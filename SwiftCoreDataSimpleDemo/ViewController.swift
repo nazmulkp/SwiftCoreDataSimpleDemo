@@ -30,12 +30,26 @@ class ViewController: UIViewController  {
         /*
          Creates, configures, and returns an instance of the class for the entity with a given name.
          */
+        /*
         let entityForName =  NSEntityDescription.insertNewObjectForEntityForName("Book", inManagedObjectContext: context)
         
         entityForName.setValue("Android Programming", forKey: "title")
         entityForName.setValue("12/12/12", forKey: "publishDate")
         entityForName.setValue("NH001", forKey: "code")
-        entityForName.setValue("tolight", forKey: "author")
+        entityForName.setValue("Nazmul Hasan", forKey: "author")
+        */
+        
+        
+        // entityForName  Returns the entity with the specified name from the managed object model associated with the specified managed object context’s persistent store coordinator.
+        let entity = NSEntityDescription.entityForName("Book", inManagedObjectContext: context)!
+          //Book class inherit NSObject so we need ot initilaization
+        let book = Book(entity: entity, insertIntoManagedObjectContext: context)
+        book.title = "Android Programming"
+        book.publishDate = "12/12/12"
+        book.code = "AP001"
+        book.author = "Nazmul Hasan"
+        //Registers an object to be inserted in the receiver’s persistent store the next time changes are saved.
+        context.insertObject(book)
         
         
         do{
@@ -154,7 +168,6 @@ class ViewController: UIViewController  {
         //nstance of NSFetchRequest describes search criteria used to retrieve data from a persistent store.
         let fetchRequest = NSFetchRequest(entityName: "Book")
         fetchRequest.predicate = NSPredicate(format: "title=%@", "Windows Programming")
-        fetchRequest.returnsObjectsAsFaults = false
         
         do {
             

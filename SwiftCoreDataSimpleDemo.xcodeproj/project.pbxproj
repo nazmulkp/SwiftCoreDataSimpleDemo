@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF74CB571DAD62300089CF13 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF74CB551DAD62300089CF13 /* Book+CoreDataProperties.swift */; };
+		DF74CB581DAD62300089CF13 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF74CB561DAD62300089CF13 /* Book.swift */; };
 		DFFED4591DAB3FC3002369F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFED4581DAB3FC3002369F0 /* AppDelegate.swift */; };
 		DFFED45B1DAB3FC3002369F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFED45A1DAB3FC3002369F0 /* ViewController.swift */; };
 		DFFED45E1DAB3FC3002369F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFFED45C1DAB3FC3002369F0 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF74CB551DAD62300089CF13 /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataProperties.swift"; path = "../Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DF74CB561DAD62300089CF13 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Book.swift; path = ../Book.swift; sourceTree = "<group>"; };
 		DFFED4551DAB3FC2002369F0 /* SwiftCoreDataSimpleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCoreDataSimpleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFFED4581DAB3FC3002369F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFFED45A1DAB3FC3002369F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF74CB541DAD60070089CF13 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DF74CB551DAD62300089CF13 /* Book+CoreDataProperties.swift */,
+				DF74CB561DAD62300089CF13 /* Book.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		DFFED44C1DAB3FC2002369F0 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +69,7 @@
 		DFFED4571DAB3FC3002369F0 /* SwiftCoreDataSimpleDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DF74CB541DAD60070089CF13 /* Model */,
 				DFFED4581DAB3FC3002369F0 /* AppDelegate.swift */,
 				DFFED45A1DAB3FC3002369F0 /* ViewController.swift */,
 				DFFED45C1DAB3FC3002369F0 /* Main.storyboard */,
@@ -141,6 +155,8 @@
 			files = (
 				DFFED45B1DAB3FC3002369F0 /* ViewController.swift in Sources */,
 				DFFED4591DAB3FC3002369F0 /* AppDelegate.swift in Sources */,
+				DF74CB571DAD62300089CF13 /* Book+CoreDataProperties.swift in Sources */,
+				DF74CB581DAD62300089CF13 /* Book.swift in Sources */,
 				DFFED4611DAB3FC3002369F0 /* SwiftCoreDataSimpleDemo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +307,7 @@
 				DFFED46C1DAB3FC3002369F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
